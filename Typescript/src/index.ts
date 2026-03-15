@@ -4,12 +4,27 @@ type Category = {
     description?: string // Optional property
 }
 
+type Shipping = {
+    status: 'FREE' | 'CORREIOS' | 'PAC' | 'SEDEX'| 'AMAZON',
+    id: number,
+    name: string,
+    price: number,
+    estimatedDeliveryTime: string
+}
+
 type Product = {
     id: number,
     name: string,
+    imgUrl?: string, // Optional property
     description?: string, // Optional property
     price: number,
-    isActive: boolean
+    isActive: boolean,
+    descount?: number, // Optional property
+    shipping?: number, // Optional property
+    category: {
+        name: string,
+        description?: string // Optional property
+    },
 }
 
 const product = {
