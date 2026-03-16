@@ -1,57 +1,15 @@
-// type Category = {
-//     id: number,
-//     name: string,
-//     description?: string // Optional property
-// }
 
-// type Shipping = {
-//     status: 'FREE' | 'CORREIOS' | 'PAC' | 'SEDEX'| 'AMAZON',
-//     id: number,
-//     name: string,
-//     price: number,
-//     estimatedDeliveryTime: string
-// }
-
-
-// type Product = {
-//     id: number,
-//     name: string,
-//     imgUrl?: string, // Optional property
-//     description?: string, // Optional property
-//     price: number,
-//     isActive: boolean,
-//     descount?: number, // Optional property
-//     shipping?: number, // Optional property
-//     category: {
-//         name: string,
-//         description?: string // Optional property
-//     },
-// }
-
-// const product = {
-//     id: 1,
-//     name: "Omega 3 Fish Oil",
-//     price: 119.90
-// } as Product;
-
-// const product2 = {
-//     id: 2,
-//     name: "Omega 3 1000mg",
-//     price: 119.90
-// } as Product;
-
-// const product3 = {
-//     id: 3,
-//     name: "Omega 3 120 capsulas de 1000mg",
-//     price: 119.90
-// } as Product;
-
-//importando obejto da classe Product
 import { Product } from "./model/product.model";
 import { Category } from "./model/category.model";
+import { Cart } from "./model/cart.model";
 
-const category = new Category("Suplementos");
+const category = new Category("Suplementos")
+const product = new Product("Omega 3 Fish Oil", 119.90, "https://example.com/omega3.jpg", category, 0.2);
 
-const product = new Product("Omega 3 Fish Oil", 119.90, "https://example.com/omega3.jpg", category);
+const cart = new Cart( );
+cart.addItem(product, 2);
 
-console.log("Meu primeiro produto",product.category.title);
+console.log("Meu primeiro produto",product.category?.title);
+console.log("Preço com desconto",product.priceWithDiscountApplied(0.2));
+console.log("Carrinho de compras", cart.listProducts);
+console.log("Preço total do carrinho", cart.totalPrice);
