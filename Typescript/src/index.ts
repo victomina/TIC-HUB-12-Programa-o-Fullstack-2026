@@ -3,8 +3,8 @@ import { Product } from "./model/product.model";
 import { Category } from "./model/category.model";
 import { Cart } from "./model/cart.model";
 
-const category = new Category("Suplementos")
-const product = new Product("Omega 3 Fish Oil", 119.90, "https://example.com/omega3.jpg", category, 0.2);
+const category = new Category("1", "Suplementos");
+const product = new Product("001", "Omega 3 Fish Oil", 119.90, "https://example.com/omega3.jpg", category, 0.2);
 
 const cart = new Cart( );
 cart.addItem(product, 2);
