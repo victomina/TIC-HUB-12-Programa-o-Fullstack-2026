@@ -11,10 +11,16 @@ export default {
         items: [],
         total: 0,
       },
+      product: {
+        name: 'Guitarra Encantada',
+        price: 100,
+        description: 'Product Description',
+        discount: 0,
+      },
     }
   },
   methods: {
-    additem() {
+    addItem() {
       this.cart.total += 1
     },
     decItem() {
@@ -27,11 +33,20 @@ export default {
 <template>
   <main>
     <article>
+      <h1>{{ product.name }}</h1>
+      <p>{{ product.description }}</p>
+      <p>Price: ${{ product.price }}</p>
+      <p>Discount: {{ product.discount }}%</p>
+    </article>
+    <button @click="addItem()">Adicionar ao Carrinho</button>
+    <button @click="decItem()">Remover do Carrinho</button>
+
+    <article>
       <h1>Welcome to the ECommerce App</h1>
       <p>total: {{ cart.total + 1 }}</p>
     </article>
-    <button @click="additem()">Add to Cart</button>
-    <button @click="decItem"></button>
+    <button @click="addItem()">Adicionar ao Carrinho</button>
+    <button @click="decItem()">Remover do Carrinho</button>
   </main>
 </template>
 
