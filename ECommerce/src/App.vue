@@ -1,85 +1,38 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+/* * This is the main application component for the ECommerce project. * It serves as the entry
+point for the Vue.js application and will contain * the overall layout and structure of the app,
+including the header, main content area, and footer. *Essa é uma bibliotexca de componentes para o
+projeto ECommerce. * Ela serve como ponto de entrada para a aplicação Vue.js e conterá * a estrutura
+geral do aplicativo, incluindo o cabeçalho, área de conteúdo principal e rod */
+<script lang="ts">
+export default {
+  data() {
+    return {
+      cart: {
+        items: [],
+        total: 0,
+      },
+    }
+  },
+  methods: {
+    additem() {
+      this.cart.total += 1
+    },
+    decItem() {
+      this.cart.total -= 1
+    },
+  },
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <main>
+    <article>
+      <h1>Welcome to the ECommerce App</h1>
+      <p>total: {{ cart.total + 1 }}</p>
+    </article>
+    <button @click="additem()">Add to Cart</button>
+    <button @click="decItem"></button>
+  </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+<style></style>
