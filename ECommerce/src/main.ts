@@ -13,4 +13,5 @@ setPrimeVue(app)
 app.use(createPinia())
 app.use(router)
 
-app.mount('#app') //o que está dentro do index.html, o id="app" é onde o Vue vai montar a aplicação, ou seja, onde o Vue vai renderizar os componentes.
+app.mount('#app')
+//o que está dentro do index.html, o id="app" é onde o Vue vai montar a aplicação, ou seja, onde o Vue vai renderizar os componentes.
