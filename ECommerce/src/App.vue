@@ -60,10 +60,16 @@ export default {
       </div>
     </section>
   </main>
+
   <h1>Carrinho</h1>
   <div v-for="item in cart.list" :key="item.product.id">
     <h3>{{ item.product.name }}</h3>
   </div>
+
+  <div v-if="cart.list.length === 0">
+    <h1>{{ 'Não existem itens no carrinho' }}</h1>
+  </div>
+
   <p>Total: {{ cart.total }}</p>
   <Button :label="'Primevue'"></Button>
 </template>
