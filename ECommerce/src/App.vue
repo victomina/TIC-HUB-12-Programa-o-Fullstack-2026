@@ -51,7 +51,7 @@ export default {
 
 <template>
   <main>
-    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-4">
       <!-- //cards que mostrm em uma coluna   -->
       <div v-for="product in products" :key="product.name">
         <ProductCard :product="product" @on-click="addItem" />
