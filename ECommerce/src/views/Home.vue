@@ -43,6 +43,9 @@ export default {
     decItem() {
       this.cart.total -= 1
     },
+    goToDetail(product: Product) {
+      this.$router.push(`/product/${product.id}`)
+    },
   },
 }
 </script>
@@ -52,7 +55,9 @@ export default {
     <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-4">
       <!-- //cards que mostrm em uma coluna   -->
       <div v-for="product in products" :key="product.name">
-        <ProductCard :product="product" @on-click="addItem" />
+        <div @click="goToDetail(product)">
+          <ProductCard :product="product" @on-click="addItem" />
+        </div>
       </div>
     </section>
   </main>
