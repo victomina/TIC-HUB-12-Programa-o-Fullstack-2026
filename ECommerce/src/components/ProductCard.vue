@@ -6,7 +6,7 @@
       </article> -->
   <Card :style="{ width: '100px', minWidth: '200px', maxWidth: '320px' }">
     <template #header>
-      <img :src="'https://picsum.photos/id/1/200/300'" />
+      <img :src="'https://picsum.photos/id/1/200/300'" class="w-full object-cover" />
     </template>
     <template #title>
       <h1>Nome do produto: {{ product.name }}</h1>

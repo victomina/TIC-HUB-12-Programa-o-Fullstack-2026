@@ -4,6 +4,11 @@
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/products">Products</RouterLink>
     </menu>
+    <div class="flex-1 p-4">
+      <RouterView/>
+    </div>
   </div>
 </template>
-<script lang="ts"></script>
+<script lang="ts">
+
+</script>

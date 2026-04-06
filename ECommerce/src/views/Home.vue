@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script lang="ts">
 import { Product } from '@/model/product.model'
 import ProductCard from '@/components/ProductCard.vue'
