@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <ProductCard v-if="product" :product="product" />
+  <div v-if="product?.id">
+    <ProductCard :product="product" />
   </div>
+  <div v-else>Não existe produto com o id {{ productId }}</div>
 </template>
 
 <script lang="ts">
@@ -31,6 +32,9 @@ export default defineComponent({
         ),
       ].find((p) => p.id === parseInt(this.productId as string))
     },
+  },
+  mounted() {
+    this.getProduct()
   },
 })
 </script>
