@@ -22,10 +22,23 @@ const router = createRouter({
         {
           path: 'products/:id',
           component: ProductDetail,
+          meta: {
+            auth: true,
+          },
         },
       ],
     },
   ],
 })
-
+//Verificação de autenticação para acessar a rota de detalhes do produto
+router.beforeEach((to, from, next) => {
+  const token = {
+    isAuth: true,
+  }
+  if (to.meta.auth && !token.isAuth) {
+    next()
+  } else {
+    next('/home')
+  }
+})
 export default router
