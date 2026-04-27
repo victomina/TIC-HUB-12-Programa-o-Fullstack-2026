@@ -9,7 +9,18 @@ export class AxiosConfig {
     })
   }
   setconfig(){
-    this.$instance.interceptors.request.use()
-    this.$instance.interceptors.response.use()
+    this.$instance.interceptors.request.use((config)=>{
+      const token = localStorage.getItem('token')
+      if(token){
+        config.headers['Authorization'] = `Bearer ${token}`
+      }
+      return config
+    })
+    this.$instance.interceptors.response.use((response)=>{
+      return response
+    })
   }
 }
+
+const api = new AxiosConfig().setconfig()
+export default api
