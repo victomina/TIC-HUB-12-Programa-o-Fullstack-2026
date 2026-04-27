@@ -1,22 +1,26 @@
-interface IHttp{
-  get():Promise<any>
-  post():Promise<any>
-  put():Promise<any>
-  delete():Promise<any>
+import axios from 'axios'
+
+const api = axios.create()
+
+interface IHttp {
+  get(path: string, params: unknown, baseURL?: string): Promise<unknown>
+  post(path: string, body: unknown, baseURL?: string): Promise<unknown>
+  put(path: string, body: unknown, baseURL?: string): Promise<unknown>
+  delete(path: string, params: unknown, baseURL?: string): Promise<unknown>
 }
- export class HttpClient  implements IHttp{
-  get(path:string, params:any, baseURL?:string): Promise<any> {
-    api.get(path, {params, baseURL}).then((response)=>{
-      return response.data
-    }
+export class HttpClient implements IHttp {
+  get(path: string, params: unknown, baseURL?: string): Promise<unknown> {
+    return api.get(path, { params, baseURL }).then((response) => response.data)
   }
-  post(): Promise<any> {
-    throw new Error('Method not implemented.')
+  post(path: string, body: unknown, baseURL?: string): Promise<unknown> {
+    return api.post(path, body, { baseURL }).then((response) => response.data)
   }
-  put(): Promise<any> {
-    throw new Error('Method not implemented.')
+  put(path: string, body: unknown, baseURL?: string): Promise<unknown> {
+    return api.put(path, body, { baseURL }).then((response) => response.data)
   }
-  delete(): Promise<any> {
-    throw new Error('Method not implemented.')
- }
- }
+  delete(path: string, params: unknown, baseURL?: string): Promise<unknown> {
+    return api.delete(path, { params, baseURL }).then((response) => response.data)
+  }
+}
+
+export const httpClient = new HttpClient()
