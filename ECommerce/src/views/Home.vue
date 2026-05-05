@@ -56,7 +56,7 @@ export default {
         page: 1,
         limit: 10,
       }
-      this.rest.getAll(params).then((res: Product) => {
+      this.rest.getAll(params).then((res: { data: { data: Product[] } }) => {
         this.products = res.data.data.map((product: Product) => {
           return new Product(
             product.id,
