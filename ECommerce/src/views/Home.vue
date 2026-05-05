@@ -1,9 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script lang="ts">
-import { Product } from '@/model/product.model'
+import { ProductRest } from '@/services/rest/product.rest'
 import ProductCard from '@/components/ProductCard.vue'
 import { Cart } from '@/model/cart.model'
-
+import { Product } from '@/model/product.model'
 export default {
   components: {
     ProductCard,
@@ -29,6 +29,11 @@ export default {
       ],
     }
   },
+  computed: {
+    rest(): ProductRest {
+      return new ProductRest()
+    },
+  },
   methods: {
     addItem(product: Product) {
       const existItem = this.cart.list.some((item) => item.product.name === product.name)
@@ -45,6 +50,26 @@ export default {
     },
     goToDetail(product: Product) {
       this.$router.push(`/product/${product.id}`)
+    },
+    getProducts() {
+      const params = {
+        page: 1,
+        limit: 10,
+      }
+      this.rest.getAll(params).then((res: Product) => {
+        this.products = res.data.data.map((product: Product) => {
+          return new Product(
+            product.id,
+            product.name,
+            product.price,
+            product.description,
+            product.discount,
+          )
+        })
+      })
+    },
+    mounted() {
+      this.getProducts()
     },
   },
 }
