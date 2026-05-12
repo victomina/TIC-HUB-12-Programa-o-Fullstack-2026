@@ -64,6 +64,7 @@ export default {
             product.price,
             product.description,
             product.discount,
+            product.images,
           )
         })
       })

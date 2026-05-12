@@ -6,7 +6,7 @@
       </article> -->
   <Card :style="{ width: '100px', minWidth: '200px', maxWidth: '320px' }">
     <template #header>
-      <img :src="'https://picsum.photos/id/1/200/300'" class="w-full object-cover" />
+      <img :src="mainImage " class="w-full object-cover" />
     </template>
     <template #title>
       <h1>Nome do produto: {{ product.name }}</h1>
@@ -38,5 +38,10 @@ export default defineComponent({
       this.$emit('on-click', product)
     },
   },
+  computed: {
+    mainImage() {
+      return this.product.images.find((image) => image.isMain)?.url || 'https://picsum.photos/id/1/200/300'
+    }
+  }
 })
 </script>
