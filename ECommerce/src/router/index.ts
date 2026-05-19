@@ -1,5 +1,6 @@
 import CustomerLayout from '@/layouts/CustomerLayout.vue'
 import Home from '@/views/Home.vue'
+import Login from '@/views/Login.vue'
 import ProductDetail from '@/views/ProductDetail.vue'
 import Products from '@/views/Products.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -7,6 +8,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(),
   routes: [
+    {
+      path: '/login',
+      component: Login,
+    },
     {
       path: '/',
       component: CustomerLayout,
