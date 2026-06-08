@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <main class="flex flex-col items-center justify-center w-screen h-screen">
-    <form class="flex flex-col max-w- [400px] border p-8">
+    <form class="flex flex-col max-w- [400px] border p-8" @submit="register">
       <header>
         {{ 'Faça seu registro para acessar nossos serviços!' }}
         <h1>Registrar-se</h1>
@@ -63,6 +63,12 @@ export default defineComponent({
         },
       },
     }
+  },
+  methods: {
+    register() {
+      this.v$.$validate()
+      if(this.v$.$invalid) return
+    },
   },
 })
 </script>
