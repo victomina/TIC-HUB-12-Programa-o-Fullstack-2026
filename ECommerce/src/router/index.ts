@@ -3,6 +3,7 @@ import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import ProductDetail from '@/views/ProductDetail.vue'
 import Products from '@/views/Products.vue'
+import Register from '@/views/Register.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -11,6 +12,10 @@ const router = createRouter({
     {
       path: '/login',
       component: Login,
+    },
+    {
+      path: '/register',
+      component: Register,
     },
     {
       path: '/',
