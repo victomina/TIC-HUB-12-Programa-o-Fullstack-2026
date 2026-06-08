@@ -15,4 +15,7 @@ export default function setPrimeVue(app: App): void {
   app.component('PrimeButton', Button)
   // eslint-disable-next-line vue/multi-word-component-names
   app.component('Card', Card)
+  app.component('InputText', () => import('primevue/inputtext'))
+  // eslint-disable-next-line vue/multi-word-component-names
+  app.component('Password', () => import('primevue/password'))
 }
