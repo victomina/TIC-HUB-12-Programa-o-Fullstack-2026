@@ -27,13 +27,15 @@
 </template>
 <script lang="ts">
 import RegisterForm from '@/model/register.model'
+import { httpClient } from '@/services/config/config';
+import { RegisterRest } from '@/services/rest/register.rest';
 import useVuelidate from '@vuelidate/core'
 import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
       form: new RegisterForm('', '', '', ''),
-      errors: {},
+      rest: new RegisterRest(httpClient),
     }
   },
   setup() {

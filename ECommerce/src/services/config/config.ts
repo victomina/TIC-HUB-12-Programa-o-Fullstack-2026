@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const api = axios.create()
 
-interface IHttp {
+export interface IHttp {
   get(path: string, params: any, baseURL?: string): Promise<any>
   post(path: string, body: any, baseURL?: string): Promise<any>
   put(path: string, body: any, baseURL?: string): Promise<any>
